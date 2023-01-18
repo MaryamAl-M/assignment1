@@ -76,11 +76,23 @@ function increaseBalance() {
   }
 else if(hasLoan === true){
 
+  if(parseInt(loan_to_pay.innerText) < parseInt(pay.innerText)){
+
+    const rest = parseInt(loan_to_pay.innerText) - parseInt(pay.innerText)
+    const restPlus = Math.abs(rest);
+
+    balance.innerText = parseInt(balance.innerText) + parseInt(restPlus) + " " + currencysign
+
+    pay.innerText = 0 + " " + currencysign
+    loan_to_pay.innerText = 0 
+    document.querySelector("#loan_to_pay").setAttribute("hidden", "hidden")
+    document.querySelector("#repayLoanButton").setAttribute("hidden", "hidden")
+}
     let ninetyPrecent = parseInt(pay.innerText) * 0.9
     balance.innerText = parseInt(balance.innerText) + ninetyPrecent;
    
     let tenPrecent = parseInt(pay.innerText) * 0.1
-    loan_to_pay.innerText = parseInt(loan_to_pay.innerText) - tenPrecent + " " + currencysign
+    loan_to_pay.innerText = parseInt(loan_to_pay.innerText) - tenPrecent
 
     document.getElementById("pay").innerText = 0 + " " + currencysign
   }
@@ -109,7 +121,7 @@ if(Number(loan_to_pay.innerText) > 0){
    
   if(requestedLoan > 0 && requestedLoan <= balance.innerText *2){
       alert("Du vill ha " + requestedLoan + " i lån")
-      loan_to_pay.innerText = requestedLoan + " " + currencysign
+      loan_to_pay.innerText = requestedLoan
       hasLoan = true;
       document.querySelector("#loan_to_pay").removeAttribute("hidden")
       document.querySelector("#repayLoanButton").removeAttribute("hidden")
