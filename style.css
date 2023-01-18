@@ -1,0 +1,14 @@
+.col-sm-4{
+    background-color: #F2F2F2;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 5px;
+    border-color: gray;
+    max-width: 10px;
+    min-width: 10px;
+    max-height: 200px;
+    min-height: 200px
+}
+.btn{
+    padding-bottom: 30px;
+}
