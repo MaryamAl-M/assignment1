@@ -120,7 +120,7 @@ if(Number(loan_to_pay.innerText) > 0){
   let requestedLoan = parseInt(window.prompt("Enter the amout loan you want:", ""));
    
   if(requestedLoan > 0 && requestedLoan <= balance.innerText *2){
-      alert("Du vill ha " + requestedLoan + " i lån")
+      alert("You want to borrow " + requestedLoan + " in loan")
       loan_to_pay.innerText = requestedLoan
       hasLoan = true;
       document.querySelector("#loan_to_pay").removeAttribute("hidden")
