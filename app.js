@@ -7,7 +7,7 @@ let repayLoanButton = document.querySelector("#repayLoanButton");
 let loan_to_pay = document.querySelector("#loan_to_pay_balance");
  
 //let loan_to_pay = 0;
-const currencysign = "SEK"
+const currencySign = "SEK"
 let laptops = [];
 let hasLoan = false;
 
@@ -28,7 +28,7 @@ fetch("https://hickory-quilled-actress.glitch.me/computers")
 
   const addLaptopsToDropDownMenu = (laptops) => {
     laptops.forEach(x => addLaptopToDropDownMenu(x));
-    priceElement.innerText = laptops[0].price + " " + currencysign;
+    priceElement.innerText = laptops[0].price + " " + currencySign;
     titleElement.innerText = laptops[0].title;
     descriptionElement.innerText = laptops[0].description;
     specsElement.innerText = laptops[0].specs;
@@ -47,7 +47,7 @@ const handleLaptopMenuchange = e => {
   titleElement.innerText = selectedLaptop.title;
   descriptionElement.innerText = selectedLaptop.description;
   specsElement.innerText = selectedLaptop.specs;//.addSpecs(c);
-  priceElement.innerText = selectedLaptop.price + " " + currencysign;
+  priceElement.innerText = selectedLaptop.price + " " + currencySign;
   imgElement.src = "https://hickory-quilled-actress.glitch.me/" + selectedLaptop.image;
   
 }
@@ -71,7 +71,7 @@ function increaseBalance() {
   if(hasLoan === false){
   
     balance.innerText = parseInt(pay.innerText) + parseInt(balance.innerText)
-    document.getElementById("pay").innerText = 0 + " " + currencysign
+    document.getElementById("pay").innerText = 0 + " " + currencySign
 
   }
 else if(hasLoan === true){
@@ -81,9 +81,9 @@ else if(hasLoan === true){
     const rest = parseInt(loan_to_pay.innerText) - parseInt(pay.innerText)
     const restPlus = Math.abs(rest);
 
-    balance.innerText = parseInt(balance.innerText) + parseInt(restPlus) + " " + currencysign
+    balance.innerText = parseInt(balance.innerText) + parseInt(restPlus) + " " + currencySign
 
-    pay.innerText = 0 + " " + currencysign
+    pay.innerText = 0 + " " + currencySign
     loan_to_pay.innerText = 0 
     document.querySelector("#loan_to_pay").setAttribute("hidden", "hidden")
     document.querySelector("#repayLoanButton").setAttribute("hidden", "hidden")
@@ -94,7 +94,7 @@ else if(hasLoan === true){
     let tenPrecent = parseInt(pay.innerText) * 0.1
     loan_to_pay.innerText = parseInt(loan_to_pay.innerText) - tenPrecent
 
-    document.getElementById("pay").innerText = 0 + " " + currencysign
+    document.getElementById("pay").innerText = 0 + " " + currencySign
   }
   
 }
@@ -103,7 +103,7 @@ else if(hasLoan === true){
 workButton.addEventListener("click", increasePay)
 function increasePay() {
   let pay = document.getElementById("pay");
-  pay.innerText=parseInt(pay.innerText) + 100 + " " + currencysign
+  pay.innerText=parseInt(pay.innerText) + 100 + " " + currencySign
 }
 
 //Making an EventListener and a function 
@@ -145,9 +145,9 @@ function repayLoan(){
     const rest = parseInt(loan_to_pay.innerText) - parseInt(pay.innerText)
     const restPlus = Math.abs(rest);
 
-    balance.innerText = parseInt(balance.innerText) + parseInt(restPlus) + " " + currencysign
+    balance.innerText = parseInt(balance.innerText) + parseInt(restPlus) + " " + currencySign
 
-    pay.innerText = 0 + " " + currencysign
+    pay.innerText = 0 + " " + currencySign
     loan_to_pay.innerText = 0 
     document.querySelector("#loan_to_pay").setAttribute("hidden", "hidden")
     document.querySelector("#repayLoanButton").setAttribute("hidden", "hidden")
